@@ -1,0 +1,38 @@
+@import "tailwindcss";
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /* font-weight: 500; */
+
+  color-scheme: light dark;
+  /* color: #EFF1F3; */
+  background-color: #E5E5E5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Scrollbar Styling */
+.custom-scroller::-webkit-scrollbar {
+  width: 8px; /* Set scrollbar width */
+}
+
+/* Track (background of scrollbar) */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray background */
+  border-radius: 10px;
+}
+
+/* Handle (the moving part) */
+.custom-scroller::-webkit-scrollbar-thumb {
+  background: #46C35F; /* Green color */
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.custom-scroller::-webkit-scrollbar-thumb:hover {
+  background: #3a9b50; /* Darker green on hover */
+}
+
+
