@@ -12,23 +12,15 @@ const FilterBy = ({ onSearch }) => {
   const [selectedGender, setSelectedGender] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
-
+  const API_URL = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
     const fetchFilters = async () => {
       try {
         const [agesRes, gendersRes, statesRes, levelsRes] = await Promise.all([
-          fetch("https://test.omniswift.com.ng/api/viewAllAges").then((res) =>
-            res.json()
-          ),
-          fetch("https://test.omniswift.com.ng/api/viewAllGender").then((res) =>
-            res.json()
-          ),
-          fetch("https://test.omniswift.com.ng/api/viewAllStates").then((res) =>
-            res.json()
-          ),
-          fetch("https://test.omniswift.com.ng/api/viewAllLevels").then((res) =>
-            res.json()
-          )
+          fetch(`${API_URL}/viewAllAges`).then((res) => res.json()),
+          fetch(`${API_URL}/viewAllGender`).then((res) => res.json()),
+          fetch(`${API_URL}/viewAllStates`).then((res) => res.json()),
+          fetch(`${API_URL}/viewAllLevels`).then((res) => res.json())
         ]);
 
         console.log("API Responses:", {

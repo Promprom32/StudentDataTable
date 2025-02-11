@@ -7,8 +7,8 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_URL = process.env.REACT_BASE_URL;
-
+  const API_URL = import.meta.env.VITE_BASE_URL;
+  console.log(API_URL);
   const handleSearch = async (filters) => {
     setLoading(true);
     setError(null);
