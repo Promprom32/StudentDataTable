@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FilterBy from "./filterBy";
 import FetchedTable from "./FetchedTable";
 
@@ -8,18 +8,50 @@ const App = () => {
   const [error, setError] = useState(null);
 
   const API_URL = import.meta.env.VITE_BASE_URL;
-  console.log(API_URL);
+
+  // Fetch all students on component mount
+  useEffect(() => {
+    const fetchAllStudents = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(`${API_URL}/viewAllData`);
+        const data = await response.json();
+        console.log("Fetched Data:", data); // Debugging
+        setStudents(data.data.students || []);
+      } catch (error) {
+        setError("Failed to fetch students.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllStudents();
+  }, []);
+
   const handleSearch = async (filters) => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(
-        `${API_URL}/searchStudents?age=${filters.selectedAge}&gender=${filters.selectedGender}&state=${filters.selectedState}&level=${filters.selectedLevel}`
-      );
+      const response = await fetch(`${API_URL}/filterData`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          age: filters.selectedAge,
+          state: filters.selectedState,
+          level: filters.selectedLevel,
+          gender: filters.selectedGender
+        })
+      });
+
       const data = await response.json();
-      setStudents(data.students || []);
-    } catch {
+      console.log("Filtered Data:", data); // Debugging
+      setStudents(data.data.students || []);
+    } catch (error) {
       setError("Failed to fetch students.");
     } finally {
       setLoading(false);
@@ -40,3 +72,4 @@ const App = () => {
 };
 
 export default App;
+ 

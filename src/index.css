@@ -35,4 +35,30 @@
   background: #3a9b50; /* Darker green on hover */
 }
 
+.custom-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.custom-scroller::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroller::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 4px;
+  border: transparent;
+}
+
+.custom-scroller::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(155, 155, 155, 0.7);
+}
+
+
+
 
