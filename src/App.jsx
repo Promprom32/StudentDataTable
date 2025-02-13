@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import FilterBy from "./filterBy";
-import FetchedTable from "./FetchedTable";
+import FilterBy from "./components/filterBy";
+import FetchedTable from "./components/FetchedTable";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -9,7 +9,6 @@ const App = () => {
 
   const API_URL = import.meta.env.VITE_BASE_URL;
 
-  // Fetch all students on component mount
   useEffect(() => {
     const fetchAllStudents = async () => {
       setLoading(true);
@@ -18,7 +17,6 @@ const App = () => {
       try {
         const response = await fetch(`${API_URL}/viewAllData`);
         const data = await response.json();
-        console.log("Fetched Data:", data); // Debugging
         setStudents(data.data.students || []);
       } catch (error) {
         setError("Failed to fetch students.");
@@ -49,7 +47,6 @@ const App = () => {
       });
 
       const data = await response.json();
-      console.log("Filtered Data:", data); // Debugging
       setStudents(data.data.students || []);
     } catch (error) {
       setError("Failed to fetch students.");
@@ -72,4 +69,3 @@ const App = () => {
 };
 
 export default App;
- 

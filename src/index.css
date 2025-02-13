@@ -32,12 +32,12 @@
 
 /* Handle on hover */
 .custom-scroller::-webkit-scrollbar-thumb:hover {
-  background: #3a9b50; /* Darker green on hover */
+  background: #46C35F; /* Darker green on hover */
 }
 
 .custom-scroller {
   scrollbar-width: thin;
-  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  scrollbar-color: #46C35F transparent;
 }
 
 .custom-scroller::-webkit-scrollbar {
