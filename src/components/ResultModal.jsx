@@ -148,7 +148,6 @@ const ResultModal = ({ resultData, onClose }) => {
           </span>
         </p>
 
-        {/* Registrar Signature */}
         <div className="mt-8">
           <p>_________________________</p>
           <p className="text-sm">Registrar</p>
